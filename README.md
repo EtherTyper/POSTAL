@@ -1,11 +1,21 @@
 # POSTAL
 Source code of RWS's POSTAL, imported from hg on BitBucket. I may modify the app to be more family-friendly.
 
-## INSTALL
+## INSTALLATION SCRIPT FOR ᴍᴀᴄOS
 
-##### Note: These are not officially provided installation steps. This is just what worked for my MacBook Pro, running macOS Sierra.
+##### Note: This isn't an officially provided script. This is just what worked for my MacBook Pro, running macOS Sierra.
 
-First, sign up for [Steamworks](https://partner.steamgames.com/?goto=%2Fhome) with a Steam account, and download the Steamworks SDK. Copy the entire `steamworks` folder and its subdirectory `steamworks/sdk/public/steam` to the project. Afterwards, run the `Makefile` with your default C compiler (I used `clang`) using the `make` command. After the object (`*.o`) files and a `postal1-bin` binary are dumped into `bin`, if you also run macOS, copy the dynamically linkable libraries `steamworks/sdk/redistributable_bin/osx32/libsteam_api.dylib` and `SDL2/libs/macosx/libSDL2-2.0.0.dylib` to `bin`, as they are required for Steam integration and graphics. After that, you need to install the [Steam app](http://store.steampowered.com/about/) for the `steamclient.dylib` dynamic library. Once all of this is finished, attempt to run the app by executing `bin/postal1-bin` from Terminal or `bash` in the directory you cloned the project.
+First, sign up for [Steamworks](https://partner.steamgames.com/?goto=%2Fhome) with a Steam account, and download the Steamworks SDK. After that, you need to install the [Steam app](http://store.steampowered.com/about/) for the `steamclient.dylib` dynamic library. Run the script below to build it. Once all of this is finished, attempt to run the app by executing `bin/postal1-bin` from Terminal or `bash` in the directory you cloned the project.
+
+```bash
+export STEAMWORKS = # Steamworks SDK Path
+cp -rf $STEAMWORKS .
+cp -rf $STEAMWORKS/sdk/public/steam .
+make
+cp $STEAMWORKS/sdk/redistributable_bin/osx32/libsteam_api.dylib bin
+cp SDL2/libs/macosx/libSDL2-2.0.0.dylib bin
+bin/postal1-bin
+```
 
 ## LICENSE
 
