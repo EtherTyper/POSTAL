@@ -1,5 +1,5 @@
 # POSTAL
-Source code of RWS's POSTAL, imported from hg on BitBucket. I may make some modifications.
+Source code of RWS's POSTAL, imported from hg on BitBucket. I may modify the app to be more family-friendly.
 
 ## INSTALL
 
